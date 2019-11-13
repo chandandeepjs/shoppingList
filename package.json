@@ -9,11 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://anuragTngproduction@bitbucket.org/anuragTngproduction/tracyproject.git"
+    "url": "https://github.com/chandandeepjs/shoppingList.git"
   },
   "author": "Chandandeep Singh",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/anuragTngproduction/tracyproject#readme",
+  "homepage": "https://github.com/chandandeepjs/shoppingList/blob/master/README.md",
   "dependencies": {
     "async": "^3.1.0",
     "aws-sdk": "^2.561.0",
