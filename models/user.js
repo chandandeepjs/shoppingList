@@ -23,7 +23,7 @@ const UserSchema = new Schema({
                           type: {type: String, enum: "Point", default: "Point"},
                          coordinates: {type: [Number]}
                         },
-    created_at       : { type:Number,},
+    created_at       : { type:Date,default:Date.now()},
     updated_at       : { type:Number},
     accessToken      : { type:String},
     is_deleted       : { type:Boolean,default:false}

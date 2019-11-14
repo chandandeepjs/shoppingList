@@ -34,10 +34,10 @@ let user = [
       validate: {
         failAction: UniversalFunctions.failActionFunction,
         payload: {
-          shopName: Joi.string().required(),
+          shopName: Joi.string().lowercase().required(),
           category: Joi.string().required(),
           Address: Joi.string().required(),
-          ownerName: Joi.string().required(),
+          ownerName: Joi.string().lowercase().required(),
           coordinates: Joi.array().required()
         }
         //  headers: Joi.object({ 'authorization': Joi.string().trim().required() }).options({ allowUnknown: true })

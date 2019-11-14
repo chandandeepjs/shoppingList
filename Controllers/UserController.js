@@ -63,7 +63,7 @@ let getShopList = payloadData => {
       let user = await Service.UserService.Find(
         crit,
         { __v: 0 },
-        { skip: payloadData.skip, limit: payloadData.limit }
+        { sort:{shopName:1},skip: payloadData.skip, limit: payloadData.limit }
       );
       return resolve({ totalCount:Count.length, list: user });
     } catch (error) {
