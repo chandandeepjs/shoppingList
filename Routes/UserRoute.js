@@ -72,40 +72,6 @@ let user = [
             validate: {
                 failAction: UniversalFunctions.failActionFunction,
                 query: {
-                    skip:Joi.number().required(),
-                    limit:Joi.number().required()
-                },
-              //  headers: Joi.object({ 'authorization': Joi.string().trim().required() }).options({ allowUnknown: true })
-            },
-            plugins: {
-                'hapi-swagger': {
-                    payloadType: 'form',
-                    responseMessages: UniversalFunctions.CONFIG.APP_CONSTANTS.swaggerDefaultResponseMessages
-                }
-            }
-        }
-    },
-    {
-        method: 'GET',
-        path: '/Shop/search',
-        config: {
-            description:"List of on bases of location",
-            tags: ['api', 'Shop'],
-           // pre: [{ method:Authenticate , assign: 'verify' }],
-            handler: async (request,reply) => {
-                try {
-            
-                let userRes = await Controller.UserController.searchShops(request.query)
-                return UniversalFunctions.sendSuccess(null, userRes);
-                   
-                }
-                catch (err) {
-                    return UniversalFunctions.sendError(err);
-                }
-            },
-            validate: {
-                failAction: UniversalFunctions.failActionFunction,
-                query: {
                     shopName:Joi.string(),
                     coordinates:Joi.array(),
                     skip:Joi.number().required(),
@@ -121,8 +87,6 @@ let user = [
             }
         }
     }
-   
-
 
     
 ];
