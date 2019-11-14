@@ -27,13 +27,15 @@ let getShopList = payloadData => {
   return new Promise(async (resolve, reject) => {
     try {
       //get total count of shops for pagination
-      let Count = await Service.UserService.Count({});
+      
       //create criteria for query obj
       let crit = {};
       //check shop name exists
       if (payloadData.shopName && payloadData.shopName !== "") {
+       
         let regex = new RegExp(payloadData.shopName, "i");
         crit = { shopName: regex };
+      
       }
       //check coordinates exists
       if (
@@ -54,12 +56,14 @@ let getShopList = payloadData => {
         };
       }
       //get list of shops
+      console.log("===============",crit)
+      let Count = await Service.UserService.Find(crit);
       let user = await Service.UserService.Find(
         crit,
         { __v: 0 },
         { skip: payloadData.skip, limit: payloadData.limit }
       );
-      return resolve({ totalCount: Count, list: user });
+      return resolve({ totalCount:Count.length, list: user });
     } catch (error) {
       return reject(error);
     }

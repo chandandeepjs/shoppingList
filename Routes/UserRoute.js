@@ -76,7 +76,8 @@ let user = [
         failAction: UniversalFunctions.failActionFunction,
         query: {
           shopName: Joi.string(),
-          coordinates: Joi.array(),
+          lat:Joi.number(),
+          long:Joi.number(),
           skip: Joi.number().required(),
           limit: Joi.number().required()
         }
