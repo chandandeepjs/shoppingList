@@ -28,7 +28,7 @@ const UserSchema = new Schema({
     accessToken      : { type:String},
     is_deleted       : { type:Boolean,default:false}
 });
-UserSchema.index({'location': "2dsphere"});
+UserSchema.index({location: "2dsphere"});
 UserSchema.index({shopName:"text"});
 module.exports = Mongoose.model('user', UserSchema);
 //UserSchema.index({location: "2dsphere"});
