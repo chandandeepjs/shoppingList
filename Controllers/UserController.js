@@ -37,18 +37,20 @@ let getShopList = payloadData => {
         crit = { shopName: regex };
       
       }
+      // lat:Joi.number(),
+      // long:Joi.number(),
       //check coordinates exists
       if (
-        payloadData.coordinates &&
-        payloadData.coordinates.length !== 0 &&
-        payloadData.coordinates !== undefined
+        payloadData.long &&  payloadData.long !=="" &&
+        payloadData.lat  && payloadData.lat !== ""
+       
       ) {
         crit = {
           location: {
             $near: {
               $geometry: {
                 type: "Point",
-                coordinates: payloadData.coordinates
+                coordinates: [payloadData.long,payloadData.lat]
               },
               $maxDistance: 5000
             }
